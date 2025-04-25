@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main (){
+void main() {
   runApp(MyApp());
 }
 
@@ -17,7 +17,67 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Calculadora'),
+          title: Center(
+            child: Text('Calculadora')
+            ),
+          backgroundColor: Colors.blue,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text('Coluna 1'),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('AC', style: TextStyle(fontSize: 36),),
+                Text(''),
+                Text(''),
+                Text('<X', style: TextStyle(fontSize: 36),),
+              ],
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('7', style: TextStyle(fontSize: 36),),
+                Text('8', style: TextStyle(fontSize: 36),),
+                Text('9', style: TextStyle(fontSize: 36),),
+                Text('/', style: TextStyle(fontSize: 36),),
+              ],
+            ),
+  
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('4', style: TextStyle(fontSize: 36),),
+                Text('5', style: TextStyle(fontSize: 36),),
+                Text('6', style: TextStyle(fontSize: 36),),
+                Text('x', style: TextStyle(fontSize: 36),),
+              ],
+            ),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('1', style: TextStyle(fontSize: 36),),
+                Text('2', style: TextStyle(fontSize: 36),),
+                Text('3', style: TextStyle(fontSize: 36),),
+                Text('-', style: TextStyle(fontSize: 36),),
+              ],
+            ),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('0', style: TextStyle(fontSize: 36),),
+                Text(',', style: TextStyle(fontSize: 36),),
+                Text('=', style: TextStyle(fontSize: 36),),
+                Text('+', style: TextStyle(fontSize: 36),),
+              ],
+            ),
+            Text('Coluna 6'),
+          ],
         ),
       ),
     );
