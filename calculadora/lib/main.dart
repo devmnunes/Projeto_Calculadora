@@ -110,10 +110,56 @@ class _MyAppState extends State<MyApp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('4', style: TextStyle(fontSize: 36)),
-                Text('5', style: TextStyle(fontSize: 36)),
-                Text('6', style: TextStyle(fontSize: 36)),
-                Text('x', style: TextStyle(fontSize: 36)),
+                Container(
+                  child: Center(
+                    child: Text('4', style: TextStyle(fontSize: 36),
+                    ),
+                  ),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  ),
+
+               Container(
+                  child: Center(
+                    child: Text('5', style: TextStyle(fontSize: 36),
+                    ),
+                  ),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  ),
+
+                Container(
+                  child: Center(
+                    child: Text('6', style: TextStyle(fontSize: 36),
+                    ),
+                  ),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  ),
+
+                Container(
+                  child: Center(
+                    child: Text('x', style: TextStyle(fontSize: 30)),
+                  ),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 248, 132, 0),
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                ),
               ],
             ),
 
