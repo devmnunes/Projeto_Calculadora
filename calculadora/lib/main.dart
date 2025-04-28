@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int calculo = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,14 +25,25 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text('Coluna 1'),
+      
+            Container(
+              width: double.infinity,
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 247, 245, 245),
+                border: Border.all(color: Colors.black, width: 3),
+              ),
+              child: Center(
+                child: Text('Coluna 1'),
+                ),
+              ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -41,25 +54,25 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(35),
                   ),
                   child: Center(
-                    child: Text('<X', style: TextStyle(fontSize: 30)),
+                    child: Image.asset('assets/image/backspace.png'),
                   ),
                 ),
               ],
             ),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -70,8 +83,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -82,8 +95,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -94,8 +107,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -108,11 +121,11 @@ class _MyAppState extends State<MyApp> {
             ),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -123,8 +136,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -135,8 +148,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -147,8 +160,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -161,11 +174,11 @@ class _MyAppState extends State<MyApp> {
             ),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -176,8 +189,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -188,8 +201,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -200,8 +213,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -214,12 +227,56 @@ class _MyAppState extends State<MyApp> {
             ),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('0', style: TextStyle(fontSize: 36)),
-                Text(',', style: TextStyle(fontSize: 36)),
-                Text('=', style: TextStyle(fontSize: 36)),
-                Text('+', style: TextStyle(fontSize: 36)),
+                Container(
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  child: Center(
+                    child: Text('0', style: TextStyle(fontSize: 36)),
+                  ),
+                ),
+
+                Container(
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  child: Center(
+                    child: Text(',', style: TextStyle(fontSize: 36)),
+                  ),
+                ),
+
+                Container(
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  child: Center(
+                    child: Text('=', style: TextStyle(fontSize: 36)),
+                  ),
+                ),
+
+
+                Container(
+                  width: 55,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 248, 132, 0),
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  child: Center(
+                    child: Text('+', style: TextStyle(fontSize: 30)),
+                  ),
+                ),
               ],
             ),
             Text('Coluna 6'),
