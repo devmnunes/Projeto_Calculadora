@@ -471,7 +471,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ],
             ),
-            Text('Coluna 6'),
+            Text('Criado por Matheus Nunes'),
           ],
         ),
       ),
