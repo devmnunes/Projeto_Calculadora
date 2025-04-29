@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,18 +13,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String numero = 'Número';
+  String numero = '0';
   String operacao = '';
   double primeiroNum = 0.0;
 
   void calcular(String tecla) {
     switch (tecla) {
-      case 'AC':
-        setState(() {
-          numero = '0';
-        });
-        break;
-
       case '0':
       case '1':
       case '2':
@@ -34,9 +29,6 @@ class _MyAppState extends State<MyApp> {
       case '7':
       case '8':
       case '9':
-      case '/':
-      case 'x':
-      case '-':
       case ',':
         setState(() {
           numero += tecla;
@@ -51,25 +43,69 @@ class _MyAppState extends State<MyApp> {
             numero = numeroInt.toString();
           }
 
-          numero = numero.replaceAll(',', '.');
+          numero = numero.replaceAll('.', ',');
         });
         break;
 
+     
       case '+':
+      case '-':
+      case 'x':
+      case '/':
         operacao = tecla;
+        numero = numero.replaceAll(',', '.');
         primeiroNum = double.parse(numero);
+        numero = numero.replaceAll('.', ',');
         numero = '0';
         break;
 
       case '=':
         double resultado = 0.0;
+
+        if (operacao == '/'){
+          if (double.parse(numero) * 1 == 0) {
+            print('ERRO: divisão por zero');
+            return;
+          }
+        }
+
         if (operacao == '+'){
             resultado =  primeiroNum + double.parse(numero);
         }
+
+        if (operacao == '-'){
+          resultado = primeiroNum - double.parse(numero);
+        }
+
+         if (operacao == 'x'){
+          resultado = primeiroNum * double.parse(numero);
+        }
+
+         if (operacao == '/'){
+          resultado = primeiroNum / double.parse(numero);
+        }
+
+
         setState(() {
           numero = resultado.toString();
           numero = numero.replaceAll(',', '.');
         });
+        break;
+
+      case 'AC':
+        setState(() {
+          numero = '0';
+        });
+        break;
+
+      case 'assets/image/backspace.png':
+
+      setState(() {
+        if (numero.length > 0) {
+          numero = numero.substring(0, numero.length -1);
+        } 
+      });
+        
         break;
 
       default:
@@ -81,10 +117,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Center(child: Text('Calculadora')),
-          backgroundColor: Colors.blue,
+          backgroundColor: const Color.fromARGB(255, 252, 141, 30),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -94,7 +131,7 @@ class _MyAppState extends State<MyApp> {
               height: 100,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 247, 245, 245),
-                border: Border.all(color: Colors.black, width: 3),
+                border: Border.all(color: Colors.black, width: 4),
               ),
               child: Center(
                 child: Row(
@@ -119,14 +156,14 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('AC');
                       },
-                      child: Text('AC', style: TextStyle(fontSize: 48)),
+                      child: Text('AC', style: TextStyle(fontSize: 45)),
                     ),
                   ),
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 60,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(35),
@@ -147,8 +184,8 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -164,8 +201,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -181,8 +218,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -198,8 +235,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -220,8 +257,8 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -237,8 +274,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -254,8 +291,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -271,8 +308,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -293,8 +330,8 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -310,8 +347,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -327,8 +364,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -344,8 +381,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
@@ -366,8 +403,8 @@ class _MyAppState extends State<MyApp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -383,8 +420,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(48),
@@ -400,8 +437,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(33),
@@ -417,8 +454,8 @@ class _MyAppState extends State<MyApp> {
                 ),
 
                 Container(
-                  width: 55,
-                  height: 55,
+                 width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 248, 132, 0),
                     borderRadius: BorderRadius.circular(33),
