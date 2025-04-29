@@ -13,43 +13,69 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String numero = 'Número';
-  int calculo = 0;
+  String operacao = '';
+  double primeiroNum = 0.0;
 
-  void calcular( String tecla) {
+  void calcular(String tecla) {
+    switch (tecla) {
+      case 'AC':
+        setState(() {
+          numero = '0';
+        });
+        break;
 
-  switch(tecla) {
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+      case '/':
+      case 'x':
+      case '-':
+      case ',':
+        setState(() {
+          numero += tecla;
 
-    case 'AC':
-    setState(() {
-       numero = '0';
-    });
-      break;
+          numero = numero.replaceAll(',', '.');
 
-    case '0':
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-    case '6':
-    case '7':
-    case '8':
-    case '9':
-    case '/':
-    case 'x':
-    case '+':
-    case '-':
-    case ',':
-    setState(() {
-       numero += tecla;
-    });
-      break;
+          if (numero.contains('.')) {
+            //double numeroDouble = double.parse(numero);
+            //numero = numeroDouble.toString();
+          } else {
+            int numeroInt = int.parse(numero);
+            numero = numeroInt.toString();
+          }
 
+          numero = numero.replaceAll(',', '.');
+        });
+        break;
+
+      case '+':
+        operacao = tecla;
+        primeiroNum = double.parse(numero);
+        numero = '0';
+        break;
+
+      case '=':
+        double resultado = 0.0;
+        if (operacao == '+'){
+            resultado =  primeiroNum + double.parse(numero);
+        }
+        setState(() {
+          numero = resultado.toString();
+          numero = numero.replaceAll(',', '.');
+        });
+        break;
 
       default:
         numero += tecla;
-      break;
-  }
+        break;
+    }
   }
 
   @override
@@ -63,7 +89,6 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-      
             Container(
               width: double.infinity,
               height: 100,
@@ -74,12 +99,10 @@ class _MyAppState extends State<MyApp> {
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text( numero, style: TextStyle(fontSize: 72),),
-                  ],
-                ),
+                  children: [Text(numero, style: TextStyle(fontSize: 72))],
                 ),
               ),
+            ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -93,10 +116,11 @@ class _MyAppState extends State<MyApp> {
                   ),
                   child: Center(
                     child: GestureDetector(
-                      onTap:() {
+                      onTap: () {
                         calcular('AC');
                       },
-                      child: Text('AC', style: TextStyle(fontSize: 48))),
+                      child: Text('AC', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -112,7 +136,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('assets/image/backspace.png');
                       },
-                      child: Image.asset('assets/image/backspace.png')),
+                      child: Image.asset('assets/image/backspace.png'),
+                    ),
                   ),
                 ),
               ],
@@ -130,10 +155,11 @@ class _MyAppState extends State<MyApp> {
                   ),
                   child: Center(
                     child: GestureDetector(
-                      onTap: () { 
+                      onTap: () {
                         calcular('7');
-                        },
-                      child: Text('7', style: TextStyle(fontSize: 48))),
+                      },
+                      child: Text('7', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -149,7 +175,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('8');
                       },
-                      child: Text('8', style: TextStyle(fontSize: 48))),
+                      child: Text('8', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -165,7 +192,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('9');
                       },
-                      child: Text('9', style: TextStyle(fontSize: 48))),
+                      child: Text('9', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -181,7 +209,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('/');
                       },
-                      child: Text('/', style: TextStyle(fontSize: 48))),
+                      child: Text('/', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
               ],
@@ -202,7 +231,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('4');
                       },
-                      child: Text('4', style: TextStyle(fontSize: 48))),
+                      child: Text('4', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -218,7 +248,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('5');
                       },
-                      child: Text('5', style: TextStyle(fontSize: 48))),
+                      child: Text('5', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -234,7 +265,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('6');
                       },
-                      child: Text('6', style: TextStyle(fontSize: 48))),
+                      child: Text('6', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -250,7 +282,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('x');
                       },
-                      child: Text('x', style: TextStyle(fontSize: 48))),
+                      child: Text('x', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
               ],
@@ -271,7 +304,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('1');
                       },
-                      child: Text('1', style: TextStyle(fontSize: 48))),
+                      child: Text('1', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -287,7 +321,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('2');
                       },
-                      child: Text('2', style: TextStyle(fontSize: 48))),
+                      child: Text('2', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -303,7 +338,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('3');
                       },
-                      child: Text('3', style: TextStyle(fontSize: 48))),
+                      child: Text('3', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -319,7 +355,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('-');
                       },
-                      child: Text('-', style: TextStyle(fontSize: 48))),
+                      child: Text('-', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
               ],
@@ -340,7 +377,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('0');
                       },
-                      child: Text('0', style: TextStyle(fontSize: 48))),
+                      child: Text('0', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -356,7 +394,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular(',');
                       },
-                      child: Text(',', style: TextStyle(fontSize: 48))),
+                      child: Text(',', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
 
@@ -372,10 +411,10 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('=');
                       },
-                      child: Text('=', style: TextStyle(fontSize: 48))),
+                      child: Text('=', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
-
 
                 Container(
                   width: 55,
@@ -389,7 +428,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         calcular('+');
                       },
-                      child: Text('+', style: TextStyle(fontSize: 48))),
+                      child: Text('+', style: TextStyle(fontSize: 48)),
+                    ),
                   ),
                 ),
               ],
@@ -401,3 +441,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
