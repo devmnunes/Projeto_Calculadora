@@ -1,4 +1,5 @@
 
+import 'package:calculadora/widgets/buttons_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -377,22 +378,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 248, 132, 0),
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('-');
-                      },
-                      child: Text('-', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtonCustom( '', text: '-', onPressed: (String ) { calcular('-');  }),
               ],
             ),
 
@@ -421,7 +407,7 @@ class _MyAppState extends State<MyApp> {
                   height: 75,
                   decoration: BoxDecoration(
                     color: Colors.grey,
-                    borderRadius: BorderRadius.circular(48),
+                    borderRadius: BorderRadius.circular(33),
                   ),
                   child: Center(
                     child: GestureDetector(
