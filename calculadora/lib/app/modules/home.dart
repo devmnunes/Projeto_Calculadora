@@ -124,340 +124,105 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              width: double.infinity,
-              height: 100,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 247, 245, 245),
-                border: Border.all(color: Colors.black, width: 4),
-              ),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [Text(numero, style: TextStyle(fontSize: 72))],
-                ),
-              ),
-            ),
+  Container(
+    width: double.infinity,
+    height: 100,
+    decoration: BoxDecoration(
+      color: const Color(0xF6F6F6F6),
+      border: Border.all(color: Colors.black, width: 4),
+    ),
+    child: Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(numero, style: TextStyle(fontSize: 72)),
+        ],
+      ),
+    ),
+  ),
+
+  Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+
+      ButtomCustomNum('', text: 'AC', onPressed: (String) {calcular('AC');}),
+
+      Container(
+        width: 75,
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(35),
+        ),
+        child: Center(
+          child: GestureDetector(
+            onTap: () {
+              calcular('assets/image/backspace.png');
+            },
+            child: Image.asset('assets/image/backspace.png'),
+          ),
+        ),
+      ),
+    ],
+  ),
+
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 75,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('AC');
-                      },
-                      child: Text('AC', style: TextStyle(fontSize: 45)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '7', onPressed: (String) {calcular('7');}),
 
-                Container(
-                  width: 75,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(35),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('assets/image/backspace.png');
-                      },
-                      child: Image.asset('assets/image/backspace.png'),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '8', onPressed: (String) {calcular('8');}),
+
+                ButtomCustomNum('', text: '9', onPressed: (String) {calcular('9');}),
+
+                ButtonCustomOP( '', text: '/', onPressed: (String ) { calcular('/');  }),
               ],
             ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('7');
-                      },
-                      child: Text('7', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '4', onPressed: (String) {calcular('4');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('8');
-                      },
-                      child: Text('8', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '5', onPressed: (String) {calcular('5');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('9');
-                      },
-                      child: Text('9', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '6', onPressed: (String) {calcular('6');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 248, 132, 0),
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('/');
-                      },
-                      child: Text('/', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtonCustomOP( '', text: 'x', onPressed: (String ) { calcular('x');  }),
               ],
             ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('4');
-                      },
-                      child: Text('4', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '1', onPressed: (String) {calcular('1');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('5');
-                      },
-                      child: Text('5', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '2', onPressed: (String) {calcular('2');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('6');
-                      },
-                      child: Text('6', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '3', onPressed: (String) {calcular('3');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 248, 132, 0),
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('x');
-                      },
-                      child: Text('x', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtonCustomOP( '', text: '-', onPressed: (String ) { calcular('-');  }),
               ],
             ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('1');
-                      },
-                      child: Text('1', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '0', onPressed: (String) {calcular('0');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('2');
-                      },
-                      child: Text('2', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: ',', onPressed: (String) {calcular(',');}),
 
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('3');
-                      },
-                      child: Text('3', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtomCustomNum('', text: '=', onPressed: (String) {calcular('=');}),
 
-                ButtonCustom( '', text: '-', onPressed: (String ) { calcular('-');  }),
-              ],
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('0');
-                      },
-                      child: Text('0', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
-
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular(',');
-                      },
-                      child: Text(',', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
-
-                Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('=');
-                      },
-                      child: Text('=', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
-
-                Container(
-                 width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 248, 132, 0),
-                    borderRadius: BorderRadius.circular(33),
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        calcular('+');
-                      },
-                      child: Text('+', style: TextStyle(fontSize: 48)),
-                    ),
-                  ),
-                ),
+                ButtonCustomOP( '', text: '+', onPressed: (String ) { calcular('+');  }),
               ],
             ),
             Text('Criado por Matheus Nunes'),
           ],
         ),
       ),
-    );
+      );
   }
 }
+
