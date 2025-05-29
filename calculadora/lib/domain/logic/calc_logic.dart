@@ -4,7 +4,6 @@ class CalcLogic {
   double primeiroNum = 0.0;
   bool limpar = false;
 
-
   void calcular(String tecla) {
     switch (tecla) {
       case '0':
@@ -20,9 +19,9 @@ class CalcLogic {
       case ',':
         {
           numero += tecla;
- 
+
           numero = numero.replaceAll(',', '.');
- 
+
           if (numero.contains('.')) {
             //double numeroDouble = double.parse(numero);
             //numero = numeroDouble.toString();
@@ -30,11 +29,12 @@ class CalcLogic {
             int numeroInt = int.parse(numero);
             numero = numeroInt.toString();
           }
- 
+
           numero = numero.replaceAll('.', ',');
-        };
+        }
+        ;
         break;
- 
+
       case '+':
       case '-':
       case 'x':
@@ -45,59 +45,60 @@ class CalcLogic {
         numero = numero.replaceAll('.', ',');
         numero = '0';
         break;
- 
+
       case '=':
         double resultado = 0.0;
- 
-        if (operacao == '/') {
-          if (double.parse(numero) * 1 == 0) {
-            print('ERRO: divisão por zero');
-            return;
-          }
+
+        if (operacao == '/' && double.parse(numero) == 0) {
+          numero = 'ERRO';
+          operacao = '';
+          primeiroNum = 0;
+          return;
         }
- 
+
         if (operacao == '+') {
           resultado = primeiroNum + double.parse(numero);
         }
- 
+
         if (operacao == '-') {
           resultado = primeiroNum - double.parse(numero);
         }
- 
+
         if (operacao == 'x') {
           resultado = primeiroNum * double.parse(numero);
         }
- 
+
         if (operacao == '/') {
           resultado = primeiroNum / double.parse(numero);
         }
- 
-         {
+
+        {
           numero = resultado.toString();
           numero = numero.replaceAll(',', '.');
-        };
+        }
+        ;
         break;
- 
+
       case 'AC':
-         {
+        {
           numero = '0';
-        };
+        }
+        ;
         break;
- 
+
       case 'assets/image/backspace.png':
-      {
+        {
           if (numero.length > 0) {
             numero = numero.substring(0, numero.length - 1);
           }
-        };
- 
+        }
+        ;
+
         break;
- 
+
       default:
         numero += tecla;
         break;
     }
   }
 }
- 
-   
