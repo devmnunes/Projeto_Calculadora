@@ -39,6 +39,11 @@ class CalcLogic {
       case '-':
       case 'x':
       case '/':
+        if (numero == '0' && operacao.isEmpty) {
+          primeiroNum = 0; // aqui tu força 0 como primeiro número
+        } else {
+          primeiroNum = double.parse(numero.replaceAll(',', '.'));
+        }
         operacao = tecla;
         numero = numero.replaceAll(',', '.');
         primeiroNum = double.parse(numero);
@@ -83,6 +88,7 @@ class CalcLogic {
         {
           numero = '0';
         }
+        ;
         ;
         break;
 
