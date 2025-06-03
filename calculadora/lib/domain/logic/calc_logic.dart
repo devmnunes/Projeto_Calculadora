@@ -4,7 +4,12 @@ class CalcLogic {
   double primeiroNum = 0.0;
   bool limpar = false;
 
+  double _parseNumber(String value) {
+    return double.parse(value.replaceAll(',', '.'));
+}
+
   void calcular(String tecla) {
+    
     switch (tecla) {
       case '0':
       case '1':
@@ -23,8 +28,7 @@ class CalcLogic {
           numero = numero.replaceAll(',', '.');
 
           if (numero.contains('.')) {
-            //double numeroDouble = double.parse(numero);
-            //numero = numeroDouble.toString();
+            numero += ',';
           } else {
             int numeroInt = int.parse(numero);
             numero = numeroInt.toString();
@@ -106,5 +110,9 @@ class CalcLogic {
         numero += tecla;
         break;
     }
+    
   }
+  
 }
+
+
